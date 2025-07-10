@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+    {{content | safe}} <!--safe will make the content come out of the html form while being displayed-->
+
+    <form action="{% url 'edit' %}" method="POST"><!--step 6: edit page-->
+        {% csrf_token %}
+        <input type="hidden" name="entry_title" value="{{ title }}">
+        <input type="submit" value="Edit" class="btn btn-danger"> <!--bootstrap-->
+    </form>
+
+    
+
+{% endblock %}

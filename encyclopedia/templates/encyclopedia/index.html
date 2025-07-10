@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <!--step three: Index Page: creating hyperlinks for the entries list items -->
+            <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li> <!--taken from urls name and title -> path("wiki/<str:title>", views.entry, name="entry")-->
+        {% endfor %}
+    </ul>
+
+{% endblock %}
